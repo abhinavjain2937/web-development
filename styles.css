@@ -1,0 +1,73 @@
+/* Apply a nice font and background color to the whole page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #38e7f0;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Create a central container for the content */
+.container {
+    max-width: 800px;
+    margin: auto; /* Center the layout */
+    background: #f3f5f2;
+    padding: 30px; /* Inner spacing */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Style the heading */
+h1 {
+    color: #0056b3;
+    margin-bottom: 15px; /* Spacing below the heading */
+}
+
+/* Style the paragraph */
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 25px; /* Spacing below the paragraph */
+}
+
+/* Style the link */
+a {
+    display: inline-block; /* Allows margin to be applied */
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 25px; /* Spacing below the link */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Make the image responsive and add spacing */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 25px; /* Spacing below the image */
+}
+
+/* Style the button */
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
