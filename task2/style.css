@@ -1,0 +1,130 @@
+/* Basic Reset and Setup */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e9ecef;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #004d99;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+/* STEP 3: Responsive Layout with Flexbox */
+.container {
+    display: flex; /* Enables Flexbox layout */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.form-section, .todo-section {
+    flex: 1; /* Both sections take equal space */
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #004d99;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+}
+
+/* Form & Input Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.message {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* To-Do List Styling */
+.input-group {
+    display: flex;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+#todo-input {
+    flex-grow: 1;
+}
+
+#todo-list {
+    list-style: none;
+}
+
+#todo-list li {
+    padding: 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#todo-list .delete-btn {
+    background-color: #dc3545;
+    padding: 5px 10px;
+}
+
+#todo-list .delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* STEP 3: Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack sections vertically on mobile */
+    }
+    header, .form-section, .todo-section {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
