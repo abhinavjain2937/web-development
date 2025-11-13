@@ -1,0 +1,40 @@
+/* Custom Font and Background */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fff7ed; /* Light Orange background */
+}
+
+.card {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom state classes for visual feedback */
+/* Correct Answer styles */
+.quiz-option.correct {
+    background-color: #d1fae5; /* Green 100 */
+    border-color: #20da9c; /* Green 500 */
+}
+
+/* Incorrect Answer styles */
+.quiz-option.incorrect {
+    background-color: #fee2e2; /* Red 100 */
+    border-color: #ef4444; /* Red 500 */
+}
+
+/* Highlight for the currently selected answer */
+.quiz-option.selected {
+    border: 3px solid #f97316; /* Orange 500 */
+}
+
+/* Disabled state for options after selection */
+.quiz-option:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* Disabled state for navigation buttons */
+.nav-btn:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
