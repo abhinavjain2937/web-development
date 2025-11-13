@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4: Full Project Implementation - Portfolio & Dynamic Data</title>
+    <!-- Load Tailwind CSS for modern, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body class="text-slate-800">
 
+    <!-- Navigation Header -->
+    <header class="sticky top-0 bg-white shadow-lg z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-cyan-600">Abhinav's Portfolio</h1>
+            <nav class="space-x-4">
+                <a href="#projects" class="text-slate-600 hover:text-cyan-600 font-medium transition">Projects</a>
+                <a href="#about" class="text-slate-600 hover:text-cyan-600 font-medium transition">About</a>
+                <button id="wishlistButton" class="bg-sky-500 text-white px-3 py-1 rounded-full text-sm font-semibold transition hover:bg-sky-600 shadow-md">
+                    Wishlist (<span id="wishlistCount">0</span>)
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Hero Section (STEP 1: Portfolio Structure) -->
+        <section id="hero" class="text-center py-16 bg-white rounded-xl card-shadow mb-12 border-b-4 border-cyan-500">
+            <h2 class="text-4xl md:text-6xl font-extrabold text-slate-900">Hi, I'm Abhinav Jain</h2>
+            <p class="mt-4 text-xl text-slate-600 max-w-3xl mx-auto">A Web Developer dedicated to building responsive, efficient, and user-friendly applications using HTML, CSS, and JavaScript.</p>
+        </section>
+        
+        <!-- STEP 3: Product Listing Page with Filtering, Sorting, and Search -->
+        <section id="projects" class="mb-12">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8 border-b-2 border-cyan-200 pb-3">Featured Projects (Dynamic Data)</h2>
+
+            <!-- Filtering, Sorting, and Search Controls -->
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 mb-8 p-6 bg-white rounded-lg card-shadow">
+                
+                <!-- Search Input -->
+                <div class="flex-grow">
+                    <label for="searchInput" class="block text-sm font-medium text-gray-700 mb-1">Search by Name/Keyword:</label>
+                    <input type="text" id="searchInput" placeholder="Search projects..." class="mt-1 block w-full pl-3 pr-4 py-2 text-base border-slate-300 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm rounded-md shadow-sm">
+                </div>
+                
+                <!-- Category Filter -->
+                <div class="w-full md:w-1/4">
+                    <label for="categoryFilter" class="block text-sm font-medium text-gray-700 mb-1">Filter by Category:</label>
+                    <select id="categoryFilter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-slate-300 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm rounded-md shadow-sm">
+                        <option value="all">All Categories</option>
+                        <!-- Options populated by JS -->
+                    </select>
+                </div>
+                
+                <!-- Sort by Price -->
+                <div class="w-full md:w-1/4">
+                    <label for="sortOrder" class="block text-sm font-medium text-gray-700 mb-1">Sort by Price:</label>
+                    <select id="sortOrder" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-slate-300 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm rounded-md shadow-sm">
+                        <option value="default">Default Order</option>
+                        <option value="lowToHigh">Price: Low to High</option>
+                        <option value="highToLow">Price: High to Low</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- Product Grid -->
+            <div id="productList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project cards will be rendered here by JavaScript -->
+            </div>
+
+            <!-- No Results Message -->
+            <p id="noResults" class="hidden text-center text-xl text-slate-500 mt-10 p-4 border-2 border-dashed border-slate-300 rounded-lg">
+                <span class="text-3xl">😢</span> No projects found matching your criteria.
+            </p>
+        </section>
+
+        <!-- STEP 1: About Section -->
+        <section id="about" class="py-10">
+            <h2 class="text-3xl font-bold text-slate-900 mb-6 border-b-2 border-cyan-200 pb-3">About Abhinav Jain</h2>
+            <div class="bg-white p-6 rounded-xl card-shadow border-l-4 border-cyan-500">
+                <p class="text-lg mb-4">I recently completed a 45-day internship focusing on HTML, CSS, and JavaScript, where I gained practical skills in creating dynamic, responsive web applications. My passion lies in solving real-world problems and creating interfaces that are both beautiful and functional.</p>
+                <p class="text-lg">This portfolio demonstrates my ability to integrate front-end design with dynamic data handling, filtering, sorting, and persistence using the browser's local storage capabilities.</p>
+            </div>
+        </section>
+        
+        <!-- STEP 2: Wishlist Modal (Local Storage Feature) -->
+        <div id="wishlistModal" class="fixed inset-0 bg-gray-900 bg-opacity-80 hidden items-center justify-center p-4 z-30">
+            <div class="bg-white rounded-xl p-6 w-full max-w-md card-shadow transform transition-all">
+                <h3 class="text-2xl font-bold text-cyan-600 mb-4 border-b pb-2">My Wishlist</h3>
+                <ul id="wishlistItems" class="space-y-3 max-h-80 overflow-y-auto pr-2">
+                    <!-- Wishlist items populated by JS -->
+                </ul>
+                <p id="emptyWishlist" class="text-slate-500 italic mt-3 hidden text-center">Your wishlist is empty. Add a project!</p>
+                <button id="closeModal" class="mt-6 w-full bg-cyan-600 text-white py-2 rounded-lg hover:bg-cyan-700 transition font-semibold">Close</button>
+                <button id="clearWishlist" class="mt-2 w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition font-semibold">Clear All Items</button>
+            </div>
+        </div>
+        
+        <!-- Toast Notification Container -->
+        <div id="toastContainer" class="toast-container space-y-3">
+            <!-- Toasts will be inserted here -->
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white text-center py-6 mt-12">
+        <p>&copy; 2024 Abhinav Jain. All rights reserved. | Built with HTML, Tailwind CSS, & JavaScript</p>
+    </footer>
+
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

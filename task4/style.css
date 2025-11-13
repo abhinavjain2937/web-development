@@ -1,0 +1,24 @@
+/* Custom Styles - Using Solid Colors */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f8ff; /* Very Light Cyan Background */
+    color: #1e293b; /* Slate 800 */
+}
+.card-shadow {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+/* Custom scrollbar for better aesthetic */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #64748b; /* Slate 500 */
+    border-radius: 4px;
+}
+/* Toast Notification Styling */
+.toast-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+}
