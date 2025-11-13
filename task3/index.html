@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3: Interactive Quiz (Orange Theme)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-3xl mx-auto">
+        <header class="bg-orange-600 text-white p-6 md:p-8 rounded-t-xl mb-6 card">
+            <h1 class="text-3xl md:text-4xl font-extrabold tracking-wider">Advanced Web Dev Challenge (Task 3)</h1>
+            <p class="mt-2 text-orange-200">Interactive Quiz Project and Responsive Design</p>
+        </header>
+
+        <div class="grid grid-cols-1 gap-6">
+
+            <section class="card bg-white p-6 md:p-8 rounded-xl">
+                <h2 class="2xl font-bold text-orange-700 mb-6 border-b pb-2">Web Development Quiz</h2>
+                <div id="quizContainer">
+                    </div>
+                
+                <p id="feedbackMessage" class="mt-4 p-3 rounded-md hidden"></p>
+
+                <div class="flex justify-between items-center mt-6 pt-4 border-t border-gray-200">
+                    <button id="prevBtn" class="nav-btn bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded transition" disabled>
+                        &larr; Previous
+                    </button>
+                    <button id="nextBtn" class="nav-btn bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded transition" disabled>
+                        Next &rarr;
+                    </button>
+                    <button id="submitBtn" class="nav-btn bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition hidden">
+                        Submit Quiz
+                    </button>
+                </div>
+
+                <div id="resultContainer" class="hidden mt-6 p-6 rounded-md border-l-4">
+                    <div id="resultContent" class="flex items-center space-x-4">
+                        <div>
+                            <p id="scoreDisplay" class="text-2xl font-bold"></p>
+                            <p id="feedbackDisplay" class="text-lg mt-1"></p>
+                        </div>
+                    </div>
+                    <button id="restartQuizBtn" class="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded transition">
+                        Restart Quiz
+                    </button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>
