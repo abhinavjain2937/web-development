@@ -1,0 +1,45 @@
+/* * TASK 5, STEP 2: CSS Optimization Note
+ * The file is kept minimal and separate from HTML/JS to allow for easier future minification 
+ * and faster initial rendering of the page structure.
+ */
+
+/* Custom Font and Background */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom shadow for cards */
+.card-shadow {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Scrollbar styling for aesthetic */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #0edd61; /* Teal 300 */
+    border-radius: 4px;
+}
+
+/* Toast Notification Styling */
+.toast-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+}
+
+/* * LAZY LOADING STYLES (TASK 5, STEP 2)
+ * Ensures images transition smoothly when loaded.
+ */
+.lazy-image {
+    background-color: #dbde15; /* Placeholder gray while loading */
+    min-height: 150px;
+    opacity: 0; /* Starts hidden */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.lazy-image.loaded {
+    opacity: 1; /* Fades in when the image source is fully loaded */
+}
